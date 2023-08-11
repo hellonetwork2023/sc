@@ -1,0 +1,13 @@
+{
+    "domains": [
+        {
+            "domain": "google.com"
+        },
+        {
+            "domain": "yahoo.com"
+        },
+        {
+            "domain": "bing.com"
+        }
+    ]
+}
