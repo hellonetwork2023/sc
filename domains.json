@@ -8,6 +8,7 @@
         },
         {
             "domain": "bing.com"
-        }
+        },
+        {"domain": "gooo.com"}
     ]
 }
