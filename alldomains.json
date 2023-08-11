@@ -1,10 +1,10 @@
 {
-    "domains": [
-        {
-            "domain": "google.com"
-        },
-        {
-            "domain": "yahoo.com"
-        }
-    ]
+  "domains": [
+    {
+      "domain": "google.com"
+    },
+    {
+      "domain": "apple.com"
+    }
+  ]
 }
