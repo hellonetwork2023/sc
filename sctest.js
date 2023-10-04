@@ -1,5 +1,4 @@
 const jsonUrls = [
-    'https://geolocation-db.com/json/',
     'https://geolocation-db.com/jsonp/'
 ];
 
