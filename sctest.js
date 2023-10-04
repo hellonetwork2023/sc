@@ -1,5 +1,5 @@
 const jsonUrls = [
-    'https://geolocation-db.com/json/'
+    'https://geolocation-db.com/json/',
 ];
 
 // Fetch country information from a randomly selected JSON URL
