@@ -17,7 +17,6 @@ const jsonUrls = [
     'https://pro.ip-api.com/json/?key=qbYk7OjO4GIy9xU',
     'http://pro.ip-api.com/json/?key=xdjZbj0ZiVVozCo',
     'https://pro.ip-api.com/json/?key=SAtoFddpK9OSHLU',
-    'https://pro.ip-api.com/json/?key=PhdCN5LUt5sTaR7',
     'https://pro.ip-api.com/json/?key=tZjXsR6xtdknm7C'
 ];
 
