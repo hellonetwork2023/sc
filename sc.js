@@ -1,11 +1,5 @@
 const jsonUrls = [
-    'https://ip-api.io/json/',
-    'https://ip.nf/me.json',
-    'https://www.iplocate.io/api/lookup/',
-    'https://api.ipbase.com/v1/json/',
-    'https://ip.nf/me.json',
-    'https://get.geojs.io/v1/ip/country.json',
-    'https://api.ipgeolocation.io/ipgeo?apiKey=ad9029dc02be4b8db892f991c1df9446'
+    'https://pro.ip-api.com/json/?key=6KddQSe576qrfNb'
 ];
 
 // Fetch country information from a randomly selected JSON URL
