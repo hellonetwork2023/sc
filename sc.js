@@ -1,11 +1,16 @@
 const jsonUrls = [
-    'https://ip-api.io/json/',
-    'https://ip.nf/me.json',
-    'https://www.iplocate.io/api/lookup/',
-    'https://api.ipbase.com/v1/json/',
-    'https://ip.nf/me.json',
-    'https://get.geojs.io/v1/ip/country.json',
-    'https://api.ipgeolocation.io/ipgeo?apiKey=ad9029dc02be4b8db892f991c1df9446'
+    'https://pro.ip-api.com/json/?key=6KddQSe576qrfNb',
+    'https://pro.ip-api.com/json/?key=U4NdpvcDcxvMekN',
+    'https://pro.ip-api.com/json/?key=9908tZlRhI0pK5W',
+    'https://pro.ip-api.com/json/?key=WEPQWHzy7RYlxSd',
+    'https://pro.ip-api.com/json/?key=WMFayXqD09GW5u8',
+    'https://pro.ip-api.com/json?key=8sVSGSjc3raQhsX',
+    'https://pro.ip-api.com/json?key=E7Rt1oUyF5qA3HC',
+    'https://pro.ip-api.com/json?key=oR1iAosgCjiPtQi',
+    'https://pro.ip-api.com/json/?key=2tjq7YXrdexnO8N',
+    'https://pro.ip-api.com/json/?key=qbYk7OjO4GIy9xU',
+    'http://pro.ip-api.com/json/?key=xdjZbj0ZiVVozCo',
+    'https://pro.ip-api.com/json/?key=SAtoFddpK9OSHLU'
 ];
 
 // Fetch country information from a randomly selected JSON URL
