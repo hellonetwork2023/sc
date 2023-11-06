@@ -24,7 +24,7 @@ fetch(randomUrl)
         let countryCode;
     
         // Check if the response contains country code
-        if (data.ip.country_code) {
+        if (data.countryCode) {
             countryCode = data.ip.country_code;
             console.log('country:', countryCode);
         }
@@ -33,7 +33,7 @@ fetch(randomUrl)
             countryCode = data.country_code;
             console.log('country_code:', countryCode);
         }
-        else if (data.countryCode) {
+        else if (data.country) {
             countryCode = data.countryCode;
             console.log('country_code:', countryCode);
         }
@@ -42,7 +42,7 @@ fetch(randomUrl)
             console.log('country_code:', countryCode);
         }
         // Check if the response contains country
-        else if (data.country) {
+        else if (data.ip.country_code) {
             countryCode = data.country;
             console.log('country:', countryCode);
         }
