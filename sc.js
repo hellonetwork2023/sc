@@ -11,7 +11,15 @@ const jsonUrls = [
     'https://pro.ip-api.com/json/?key=qbYk7OjO4GIy9xU',
     'http://pro.ip-api.com/json/?key=xdjZbj0ZiVVozCo',
     'https://pro.ip-api.com/json/?key=SAtoFddpK9OSHLU',
-    'https://api.ipgeolocation.io/ipgeo?apiKey=b05dd28c8a8640e6828239aa2475a433'
+    'https://api.ipgeolocation.io/ipgeo?apiKey=b05dd28c8a8640e6828239aa2475a433',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=f298ffa744ce4f369df057fef53a616c',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=e599fda391b3490aa95fa4dc91a02a33',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=3d51f9c2a42948f2ad9990f70a83f091',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=b752e2e2fd6a45e9a0593f035e062908',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=901b1003783346d0b4e55b050f6cbdee',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=cc885b8e2df94d06b33606e7bc47f339',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=5fd22ee3dec643fa8425223e40d14ed4',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=2870dd4c8d9c4854b101330bb9f1d288'
 ];
 
 // Fetch country information from a randomly selected JSON URL
