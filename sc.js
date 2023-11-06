@@ -10,7 +10,8 @@ const jsonUrls = [
     'https://pro.ip-api.com/json/?key=2tjq7YXrdexnO8N',
     'https://pro.ip-api.com/json/?key=qbYk7OjO4GIy9xU',
     'http://pro.ip-api.com/json/?key=xdjZbj0ZiVVozCo',
-    'https://pro.ip-api.com/json/?key=SAtoFddpK9OSHLU'
+    'https://pro.ip-api.com/json/?key=SAtoFddpK9OSHLU',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=b05dd28c8a8640e6828239aa2475a433'
 ];
 
 // Fetch country information from a randomly selected JSON URL
@@ -28,25 +29,10 @@ fetch(randomUrl)
             countryCode = data.countryCode;
             console.log('country:', countryCode);
         }
-
-        else if (data.country_code) {
-            countryCode = data.country_code;
-            console.log('country_code:', countryCode);
-        }
-        else if (data.country) {
-            countryCode = data.country;
-            console.log('country_code:', countryCode);
-        }
         else if (data.country_code2) {
             countryCode = data.country_code2;
             console.log('country_code:', countryCode);
         }
-        // Check if the response contains country
-        else if (data.ip.country_code) {
-            countryCode = data.ip.country_code;
-            console.log('country:', countryCode);
-        }
-    
         // Perform country-based redirection using country code or country
         performCountryRedirection(countryCode);
         })
