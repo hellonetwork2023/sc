@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Domain Names from JSON using JavaScript</title>
+    <style>
+        .my-link.selected {
+            color: #4db3a2; /* Add this line to set the color for selected links */
+        }
+        .my-link {
+            color: #ececf1
+        }
+    </style>
+</head>
+<body style="background-color: #343541;">
+    <div id="domainList">
+        <h2>Extracted Domain Names:</h2>
+        <ul id="domains" class="thumbnails"></ul>
+    </div>
+
+    <script>
+        // Fetch the list of all domains
+        fetch('https://hellonetwork2023.github.io/sc/alldomains.json')
+            .then(response => response.json())
+            .then(allDomainsData => {
+                // Create a set of all domains from alldomains.json
+                const allDomainsSet = new Set(allDomainsData.domains.map(domain => domain.domain));
+                console.log(allDomainsSet)
+                // Fetch and process the domains.json file
+                fetch('https://hellonetwork2023.github.io/sc/domains.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const domainList = document.getElementById('domains');
+                        console.log(domainList)
+                        for (let i = 0; i < data.domains.length; i++) {
+                            const alldomain = data.domains[i];
+                            const a = document.createElement('a');
+                            a.href = 'http://' + alldomain.domain;
+                            a.classList.add('my-link'); // Add the 'my-link' class to the anchor element
+                            const p = document.createElement('p');
+                            p.textContent = alldomain.domain;
+                            a.appendChild(p);
+                            
+                            // Check if the domain is NOT in the list before appending
+                            if (!allDomainsSet.has(alldomain.domain)) {
+                                domainList.appendChild(a);
+                            }
+                        }
+                        
+                        var links = document.querySelectorAll('.my-link');
+                        for (var i = 0; i < links.length; i++) {
+                            links[i].addEventListener('click', function(event) {
+                                event.preventDefault();
+                                for (var j = 0; j < links.length; j++) {
+                                    links[j].classList.remove('selected');
+                                }
+                                this.classList.add('selected');
+                                window.open(this.href, '_blank');
+                            });
+                        }
+                    })
+                    .catch(error => console.error('Error fetching JSON data:', error));
+            })
+            .catch(error => console.error('Error fetching alldomains.json:', error));
+    </script>
+</body>
+</html>
