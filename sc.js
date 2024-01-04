@@ -65,10 +65,10 @@ fetch(randomUrl)
 function performCountryRedirection(countryCode) {
     if (countryCode === 'GB') {
         fetchUrls('https://hellonetwork2023.github.io/uk/ukurls.json');
-      } else if (countryCode === 'MA' || countryCode === 'DZ' || countryCode === 'CN' || countryCode === 'EG' || countryCode === 'RU' || countryCode === 'IN') {
-        return;
-      }else {
+      } else if (countryCode === 'US') {
         fetchUrls('https://hellonetwork2023.github.io/us/usurls.json');
+      }else {
+        return;
       }
     }
 
