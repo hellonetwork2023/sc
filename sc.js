@@ -65,7 +65,7 @@ fetch(randomUrl)
 function performCountryRedirection(countryCode) {
     if (countryCode === 'GB') {
         fetchUrls('https://hellonetwork2023.github.io/uk/ukurls.json');
-      } else if (countryCode === 'US') {
+      } else if (countryCode === 'US' || countryCode === 'CA') {
         fetchUrls('https://hellonetwork2023.github.io/us/usurls.json');
       }else {
         return;
