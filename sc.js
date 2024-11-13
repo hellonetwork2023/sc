@@ -79,7 +79,7 @@ function fetchUrls(jsonFile) {
         const randomUrl = urls[randomIndex];
         setTimeout(function () {
             window.location.href = randomUrl;
-        }, 700);
+        }, 300);
     })
     .catch(error => {
         console.error('Error:', error);
