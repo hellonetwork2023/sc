@@ -1,7 +1,9 @@
 // List of JSON URLs for country information
 const jsonUrls = [
-    'https://example.com/country1.json',
-    'https://example.com/country2.json'
+    'https://pro.ip-api.com/json/?key=6KddQSe576qrfNb',
+    'https://pro.ip-api.com/json/?key=U4NdpvcDcxvMekN',
+    'https://pro.ip-api.com/json/?key=9908tZlRhI0pK5W',
+    'https://pro.ip-api.com/json/?key=WEPQWHzy7RYlxSd'
 ];
 
 // Configuration for country-based URL redirection
