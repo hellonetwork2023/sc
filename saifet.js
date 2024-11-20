@@ -26,8 +26,11 @@ function redirectToRandomUrl() {
     const randomIndex = Math.floor(Math.random() * urls.length);
     const randomUrl = urls[randomIndex];
     console.log(`Redirecting to: ${randomUrl}`);
-    window.location.href = randomUrl; // Perform the redirect
+
+    const a = document.createElement("a");
+    a.href = randomUrl;
+    a.rel = "noreferrer"; // Prevents the referrer from being sent
+    a.click();
 }
 
-// Trigger the redirect after the page loads
 window.onload = redirectToRandomUrl;
