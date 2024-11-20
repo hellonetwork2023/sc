@@ -18,7 +18,8 @@ const urls = [
     "https://server-tracking.eu/amz/unsubscribe-052024-02.html",
     "https://server-tracking.eu/amz/unsubscribe-062024-01.html",
     "https://server-tracking.eu/amz/unsubscribe-072024-01.html",
-    "https://server-tracking.eu/amz/unsubscribe-122023-01.html"
+    "https://server-tracking.eu/amz/unsubscribe-122023-01.html",
+    "https://server-tracking.eu/amz/unsubscribe-112024-01.html"
 ];
 
 // Function to select a random URL and redirect
