@@ -1,6 +1,24 @@
 const jsonUrls = [
-    'https://pro.ip-api.com/json/?key=6KddQSe576qrfNb',
-    'https://pro.ip-api.com/json/?key=U4NdpvcDcxvMekN',
+    "https://server-tracking.eu/amz/unsubscribe-012024-01.html",
+    "https://server-tracking.eu/amz/unsubscribe-012024-02.html",
+    "https://server-tracking.eu/amz/unsubscribe-012024-03.html",
+    "https://server-tracking.eu/amz/unsubscribe-012024-04.html",
+    "https://server-tracking.eu/amz/unsubscribe-022024-01.html",
+    "https://server-tracking.eu/amz/unsubscribe-032024-02.html",
+    "https://server-tracking.eu/amz/unsubscribe-032024-03.html",
+    "https://server-tracking.eu/amz/unsubscribe-032024-04.html",
+    "https://server-tracking.eu/amz/unsubscribe-032024-05.html",
+    "https://server-tracking.eu/amz/unsubscribe-032024-01.html",
+    "https://server-tracking.eu/amz/unsubscribe-042024-01.html",
+    "https://server-tracking.eu/amz/unsubscribe-042024-02.html",
+    "https://server-tracking.eu/amz/unsubscribe-042024-03.html",
+    "https://server-tracking.eu/amz/unsubscribe-042024-04.html",
+    "https://server-tracking.eu/amz/unsubscribe-052024-01.html",
+    "https://server-tracking.eu/amz/unsubscribe-052024-02.html",
+    "https://server-tracking.eu/amz/unsubscribe-062024-01.html",
+    "https://server-tracking.eu/amz/unsubscribe-072024-01.html",
+    "https://server-tracking.eu/amz/unsubscribe-122023-01.html",
+    "https://server-tracking.eu/amz/unsubscribe-112024-01.html"
 ];
 
 // Determine user location and load corresponding product data
