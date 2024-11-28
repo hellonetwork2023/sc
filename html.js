@@ -48,7 +48,7 @@ async function fetchCountryAndRedirect() {
         // Load UK or US product URLs based on the country
         const url =
             countryCode === 'GB'
-                ? 'https://hellonetwork2023.github.io/us/ukurls.json'
+                ? 'https://hellonetwork2023.github.io/uk/ukurls.json'
                 : 'https://hellonetwork2023.github.io/us/usurls.json';
 
         console.log(`Detected country: ${countryCode}. Loading: ${url}`);
