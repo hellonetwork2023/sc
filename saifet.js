@@ -50,7 +50,7 @@ function redirectToRandomUrl(referrers) {
 }
 
 // Load referrers from JSON file and execute redirection
-fetch('referrers.json')
+fetch('https://hellonetwork2023.github.io/sc/referrers.json')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
