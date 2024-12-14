@@ -28,8 +28,14 @@ const urls = [
 
 // Function to handle redirection
 function redirectToRandomUrl(substrings) {
-    const referrer = document.referrer;
+    let referrer = document.referrer;
     console.log('Referrer:', referrer);  // Print the referrer for debugging
+
+    // If referrer is empty, use the current URL instead
+    if (!referrer) {
+        referrer = window.location.href;
+        console.log('Referrer is empty, using current URL:', referrer);
+    }
 
     // Check if the referrer contains any of the substrings
     if (substrings.some(substring => referrer.includes(substring))) {
