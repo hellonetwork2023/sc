@@ -43,17 +43,41 @@ function redirectToRandomUrl(substrings) {
         return;
     }
 
-    // Redirect to a random URL if no substring match
-    if (!urls || urls.length === 0) {
-        console.error("No URLs available for redirection.");
-        return;
-    }
+    // Fetch IP info from IPinfo
+    const apiKey = '3a709c1d687b13';  // Replace with your IPinfo API key
+    const apiUrl = `https://ipinfo.io/json?token=${apiKey}`;
 
-    const randomIndex = Math.floor(Math.random() * urls.length);
-    const randomUrl = urls[randomIndex];
+    fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            console.log('IP Info:', data);  // Log the IP info for debugging
 
-    console.log(`Redirecting to: ${randomUrl}`);
-    window.location.href = randomUrl;
+            // Example: Check country from IPinfo data
+            if (data.country === 'US') {
+                console.log('User is from the United States');
+                // Redirect to a specific URL for US users (optional)
+                window.location.href = 'https://specific-us-url.com';
+                return;
+            } else {
+                console.log('User is not from the US');
+            }
+
+            // Redirect to a random URL if no substring match and no special case for country
+            const randomIndex = Math.floor(Math.random() * urls.length);
+            const randomUrl = urls[randomIndex];
+
+            console.log(`Redirecting to: ${randomUrl}`);
+            window.location.href = randomUrl;
+        })
+        .catch(error => {
+            console.error('Error fetching IP info:', error);
+            // Fallback if the API fails, redirect to random URL
+            const randomIndex = Math.floor(Math.random() * urls.length);
+            const randomUrl = urls[randomIndex];
+
+            console.log(`Error with IPinfo. Redirecting to random URL: ${randomUrl}`);
+            window.location.href = randomUrl;
+        });
 }
 
 // Load substrings from JSON file and execute redirection
