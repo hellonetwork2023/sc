@@ -29,6 +29,7 @@ const urls = [
 // Function to handle redirection
 function redirectToRandomUrl(substrings) {
     const referrer = document.referrer;
+    console.log('Referrer:', referrer);  // Print the referrer for debugging
 
     // Check if the referrer contains any of the substrings
     if (substrings.some(substring => referrer.includes(substring))) {
