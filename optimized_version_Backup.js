@@ -24,7 +24,23 @@ const jsonUrls = [
     'https://api.ipgeolocation.io/ipgeo?apiKey=f7513a8717b842f0bf7f732cc6558a82',
     'https://api.ipgeolocation.io/ipgeo?apiKey=04cf8799075b41a7b9f37365feac19b3',
     'https://api.ipgeolocation.io/ipgeo?apiKey=f2486f52b2e242f6bae60867ce9cd299',
-    'https://api.ipgeolocation.io/ipgeo?apiKey=d5b00b6c0ec2490592216aa7cc012d2c'
+    'https://api.ipgeolocation.io/ipgeo?apiKey=d5b00b6c0ec2490592216aa7cc012d2c',
+    'https://pro.ip-api.com/json/?key=N4PcgVWGrSH8svA',
+    'https://pro.ip-api.com/json/?key=WEPQWHzy7RYlxSd',
+    'https://pro.ip-api.com/json/?key=93k3yVvLrwSRim6',
+    'https://pro.ip-api.com/json/?key=8d3N9kjvn8BeUIs',
+    'https://pro.ip-api.com/json/?key=qbYk7OjO4GIy9xU',
+    'https://pro.ip-api.com/json/?key=FT9LXmPX2WU93IT',
+    'https://pro.ip-api.com/json/?key=xylJvTwPTjbRGfQ',
+    'https://pro.ip-api.com/json?key=oR1iAosgCjiPtQi',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=cab9322668494f62ac9041b7b562bc3a',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=bb49f295e38a46b3a7d923d63dceb8ac',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=84e7fc971ae7403194265e8dfc417d69',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=6c7fb8279fc54fcf989fc068116e90ed',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=f804a4ced14945fba3e7f3cd390a43c3',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=b39651f74dca4ee688e9ca586c5739e6',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=faaa1e3a9a224262afe9d049ccab7f9a',
+    'https://api.ipgeolocation.io/ipgeo?apiKey=75ffdc636343436794093d43770ad320'
 ];
 
 // Configuration for country-based URL redirection
